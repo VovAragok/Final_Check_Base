@@ -7,6 +7,7 @@ void start()
 {
     string[] arr = new string[0];
     arr = NewArray(arr);
+    arr = FindArray(arr);
     
  
 }
@@ -34,6 +35,26 @@ string [] NewArray(string [] arr)
             
         }
     }
+}
+
+
+string [] FindArray(string [] arr)
+{
+    string[] newArray = new string[0];
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length < 4)
+        {
+            Array.Resize(ref newArray, newArray.Length + 1);
+            newArray[count] = arr[i] ;
+            count ++;
+        }
+    }
+    Console.WriteLine("Ваш массив cо строками менее 3-ох символов");
+    string joinArr = string.Join(", ", newArray);
+    Console.WriteLine(joinArr);
+    return newArray;
 }
 
 
